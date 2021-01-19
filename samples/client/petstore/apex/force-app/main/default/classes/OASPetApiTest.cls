@@ -1,11 +1,11 @@
-@isTest
+@IsTest
 private class OASPetApiTest {
     /**
      * Add a new pet to the store
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void addPetTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(201);
@@ -28,9 +28,9 @@ private class OASPetApiTest {
     /**
      * Deletes a pet
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void deletePetTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -56,7 +56,7 @@ private class OASPetApiTest {
      *
      * Multiple status values can be provided with comma separated strings
      */
-    @isTest
+    @IsTest
     private static void findPetsByStatusTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -97,7 +97,7 @@ private class OASPetApiTest {
      *
      * Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
      */
-    @isTest
+    @IsTest
     private static void findPetsByTagsTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -138,7 +138,7 @@ private class OASPetApiTest {
      *
      * Returns a single pet
      */
-    @isTest
+    @IsTest
     private static void getPetByIdTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -179,9 +179,9 @@ private class OASPetApiTest {
     /**
      * Update an existing pet
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void updatePetTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -204,9 +204,9 @@ private class OASPetApiTest {
     /**
      * Updates a pet in the store with form data
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void updatePetWithFormTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -231,9 +231,9 @@ private class OASPetApiTest {
     /**
      * uploads an image
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void uploadFileTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);

@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class OASInlineObjectTest {
-    @isTest
+    @IsTest
     private static void equalsSameInstance() {
         OASInlineObject inlineObject1 = OASInlineObject.getExample();
         OASInlineObject inlineObject2 = inlineObject1;
@@ -15,7 +15,7 @@ private class OASInlineObjectTest {
         System.assert(inlineObject3.equals(inlineObject3));
     }
 
-    @isTest
+    @IsTest
     private static void equalsIdenticalInstance() {
         OASInlineObject inlineObject1 = OASInlineObject.getExample();
         OASInlineObject inlineObject2 = OASInlineObject.getExample();
@@ -28,7 +28,7 @@ private class OASInlineObjectTest {
         System.assert(inlineObject4.equals(inlineObject3));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsDifferentType() {
         OASInlineObject inlineObject1 = OASInlineObject.getExample();
         OASInlineObject inlineObject2 = new OASInlineObject();
@@ -37,7 +37,7 @@ private class OASInlineObjectTest {
         System.assertEquals(false, inlineObject2.equals('foo'));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsNull() {
         OASInlineObject inlineObject1 = OASInlineObject.getExample();
         OASInlineObject inlineObject2 = new OASInlineObject();
@@ -47,7 +47,7 @@ private class OASInlineObjectTest {
         System.assertEquals(false, inlineObject2.equals(inlineObject3));
     }
 
-    @isTest
+    @IsTest
     private static void consistentHashCodeValue() {
         OASInlineObject inlineObject1 = OASInlineObject.getExample();
         OASInlineObject inlineObject2 = new OASInlineObject();
@@ -56,7 +56,7 @@ private class OASInlineObjectTest {
         System.assertEquals(inlineObject2.hashCode(), inlineObject2.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void equalInstancesHaveSameHashCode() {
         OASInlineObject inlineObject1 = OASInlineObject.getExample();
         OASInlineObject inlineObject2 = OASInlineObject.getExample();

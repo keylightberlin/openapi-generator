@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class OASCategoryTest {
-    @isTest
+    @IsTest
     private static void equalsSameInstance() {
         OASCategory category1 = OASCategory.getExample();
         OASCategory category2 = category1;
@@ -15,7 +15,7 @@ private class OASCategoryTest {
         System.assert(category3.equals(category3));
     }
 
-    @isTest
+    @IsTest
     private static void equalsIdenticalInstance() {
         OASCategory category1 = OASCategory.getExample();
         OASCategory category2 = OASCategory.getExample();
@@ -28,7 +28,7 @@ private class OASCategoryTest {
         System.assert(category4.equals(category3));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsDifferentType() {
         OASCategory category1 = OASCategory.getExample();
         OASCategory category2 = new OASCategory();
@@ -37,7 +37,7 @@ private class OASCategoryTest {
         System.assertEquals(false, category2.equals('foo'));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsNull() {
         OASCategory category1 = OASCategory.getExample();
         OASCategory category2 = new OASCategory();
@@ -47,7 +47,7 @@ private class OASCategoryTest {
         System.assertEquals(false, category2.equals(category3));
     }
 
-    @isTest
+    @IsTest
     private static void consistentHashCodeValue() {
         OASCategory category1 = OASCategory.getExample();
         OASCategory category2 = new OASCategory();
@@ -56,7 +56,7 @@ private class OASCategoryTest {
         System.assertEquals(category2.hashCode(), category2.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void equalInstancesHaveSameHashCode() {
         OASCategory category1 = OASCategory.getExample();
         OASCategory category2 = OASCategory.getExample();

@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class OASTagTest {
-    @isTest
+    @IsTest
     private static void equalsSameInstance() {
         OASTag tag1 = OASTag.getExample();
         OASTag tag2 = tag1;
@@ -15,7 +15,7 @@ private class OASTagTest {
         System.assert(tag3.equals(tag3));
     }
 
-    @isTest
+    @IsTest
     private static void equalsIdenticalInstance() {
         OASTag tag1 = OASTag.getExample();
         OASTag tag2 = OASTag.getExample();
@@ -28,7 +28,7 @@ private class OASTagTest {
         System.assert(tag4.equals(tag3));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsDifferentType() {
         OASTag tag1 = OASTag.getExample();
         OASTag tag2 = new OASTag();
@@ -37,7 +37,7 @@ private class OASTagTest {
         System.assertEquals(false, tag2.equals('foo'));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsNull() {
         OASTag tag1 = OASTag.getExample();
         OASTag tag2 = new OASTag();
@@ -47,7 +47,7 @@ private class OASTagTest {
         System.assertEquals(false, tag2.equals(tag3));
     }
 
-    @isTest
+    @IsTest
     private static void consistentHashCodeValue() {
         OASTag tag1 = OASTag.getExample();
         OASTag tag2 = new OASTag();
@@ -56,7 +56,7 @@ private class OASTagTest {
         System.assertEquals(tag2.hashCode(), tag2.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void equalInstancesHaveSameHashCode() {
         OASTag tag1 = OASTag.getExample();
         OASTag tag2 = OASTag.getExample();

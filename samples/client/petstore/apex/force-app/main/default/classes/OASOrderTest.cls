@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class OASOrderTest {
-    @isTest
+    @IsTest
     private static void equalsSameInstance() {
         OASOrder order1 = OASOrder.getExample();
         OASOrder order2 = order1;
@@ -15,7 +15,7 @@ private class OASOrderTest {
         System.assert(order3.equals(order3));
     }
 
-    @isTest
+    @IsTest
     private static void equalsIdenticalInstance() {
         OASOrder order1 = OASOrder.getExample();
         OASOrder order2 = OASOrder.getExample();
@@ -28,7 +28,7 @@ private class OASOrderTest {
         System.assert(order4.equals(order3));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsDifferentType() {
         OASOrder order1 = OASOrder.getExample();
         OASOrder order2 = new OASOrder();
@@ -37,7 +37,7 @@ private class OASOrderTest {
         System.assertEquals(false, order2.equals('foo'));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsNull() {
         OASOrder order1 = OASOrder.getExample();
         OASOrder order2 = new OASOrder();
@@ -47,7 +47,7 @@ private class OASOrderTest {
         System.assertEquals(false, order2.equals(order3));
     }
 
-    @isTest
+    @IsTest
     private static void consistentHashCodeValue() {
         OASOrder order1 = OASOrder.getExample();
         OASOrder order2 = new OASOrder();
@@ -56,7 +56,7 @@ private class OASOrderTest {
         System.assertEquals(order2.hashCode(), order2.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void equalInstancesHaveSameHashCode() {
         OASOrder order1 = OASOrder.getExample();
         OASOrder order2 = OASOrder.getExample();
@@ -69,7 +69,7 @@ private class OASOrderTest {
         System.assertEquals(order3.hashCode(), order4.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void defaultValuesPopulated() {
         OASOrder order = new OASOrder();
         System.assertEquals(false, order.complete);

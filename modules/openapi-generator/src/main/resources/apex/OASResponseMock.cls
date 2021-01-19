@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 public class OASResponseMock implements HttpCalloutMock {
     private final HttpResponse response;
     private HttpRequest request;

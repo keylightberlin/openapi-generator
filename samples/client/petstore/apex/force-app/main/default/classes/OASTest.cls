@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class OASTest {
-    @isTest
+    @IsTest
     private static void Param_urlEncodeKeyValuePairUtf8() {
         String toEncodeLeft = 'Hello +%-_.!~*\'()@';
         String toEncodeRight = 'World +%-_.!~*\'()@';
@@ -9,7 +9,7 @@ private class OASTest {
         System.assertEquals(expected, result);
     }
 
-    @isTest
+    @IsTest
     private static void ApiKeyHeaderAuth_keyInHeaderWithGivenName() {
         Map<String, Object> headers = new Map<String, String>();
         List<OAS.Param> query = new List<OAS.Param>();
@@ -22,7 +22,7 @@ private class OASTest {
         System.assertEquals('foo-bar-api-key', headers.get('X-Authenticate'));
     }
 
-    @isTest
+    @IsTest
     private static void ApiKeyQueryAuth_keyInQueryParamWithGivenName() {
         Map<String, Object> headers = new Map<String, String>();
         List<OAS.Param> query = new List<OAS.Param>();
@@ -35,7 +35,7 @@ private class OASTest {
         System.assertEquals('auth_token=foo-bar-api-key', query.get(0).toString());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_returnAuthenticationMatchingInput() {
         MockApiClient client = new MockApiClient();
         OAS.ApiKeyHeaderAuth auth1 = new OAS.ApiKeyHeaderAuth('foo');
@@ -48,7 +48,7 @@ private class OASTest {
         System.assertEquals(auth2, client.getAuthentication('auth2'));
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_oneKeyValuePairForEachValueInList() {
         List<Object> values = new List<Object>{'bar', 4, false, 12.4, ''};
         OAS.ApiClient client = new OAS.ApiClient();
@@ -62,7 +62,7 @@ private class OASTest {
         System.assertEquals('foo=', params.get(4).toString());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_nullMultiValuesListToEmptyParamsList() {
         OAS.ApiClient client = new OAS.ApiClient();
         List<OAS.Param> params = client.makeParams('foo', null);
@@ -70,7 +70,7 @@ private class OASTest {
         System.assert(params.isEmpty());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_valuesListToSingleCsvKeyValuePair() {
         List<Object> values = new List<Object>{'bar', 4, false, 12.4, ''};
         OAS.ApiClient client = new OAS.ApiClient();
@@ -80,7 +80,7 @@ private class OASTest {
         System.assertEquals('foo=bar%2C4%2Cfalse%2C12.4%2C', params.get(0).toString());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_valuesListToSingleSsvKeyValuePair() {
         List<Object> values = new List<Object>{'bar', 4, false, 12.4, ''};
         OAS.ApiClient client = new OAS.ApiClient();
@@ -90,7 +90,7 @@ private class OASTest {
         System.assertEquals('foo=bar+4+false+12.4+', params.get(0).toString());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_valuesListToSingleTsvKeyValuePair() {
         List<Object> values = new List<Object>{'bar', 4, false, 12.4, ''};
         OAS.ApiClient client = new OAS.ApiClient();
@@ -100,7 +100,7 @@ private class OASTest {
         System.assertEquals('foo=bar%094%09false%0912.4%09', params.get(0).toString());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_valuesListToSinglePipeSeparatedKeyValuePair() {
         List<Object> values = new List<Object>{'bar', 4, false, 12.4, ''};
         OAS.ApiClient client = new OAS.ApiClient();
@@ -110,7 +110,7 @@ private class OASTest {
         System.assertEquals('foo=bar%7C4%7Cfalse%7C12.4%7C', params.get(0).toString());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_nullValuesListToEmptyParamsList() {
         OAS.ApiClient client = new OAS.ApiClient();
         List<OAS.Param> params = client.makeParam('foo', null, 'csv');
@@ -118,7 +118,7 @@ private class OASTest {
         System.assert(params.isEmpty());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_paramsFromAnyPrimitiveTypeDiscardNull() {
         OAS.ApiClient client = new OAS.ApiClient();
         List<OAS.Param> params = new List<OAS.Param>();
@@ -139,13 +139,13 @@ private class OASTest {
         System.assertEquals('foo=2017-01-01+15%3A00%3A00', params.get(5).toString());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_requiredParameterPasses() {
         OAS.ApiClient client = new OAS.ApiClient();
         client.assertNotNull('foo', 'bar');
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_requiredParameterFails() {
         OAS.ApiClient client = new OAS.ApiClient();
         try {
@@ -157,7 +157,7 @@ private class OASTest {
         System.assert(false);
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_extractHeadersFromResponse() {
         HttpResponse res = new HttpResponse();
         res.setHeader('Content-Type', 'application/json');
@@ -169,7 +169,7 @@ private class OASTest {
         System.assertEquals('private, max-age=0', headers.get('Cache-Control'));
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_deserializeResponseBodyByContentType() {
         MockApiClient client = new MockApiClient();
         String jsonBody = '{"red":"apple","yellow":"banana","orange":"orange"}';
@@ -187,7 +187,7 @@ private class OASTest {
         System.assertEquals('Hello, World!', result2);
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_addStringifiedHeadersToRequest() {
         MockApiClient client = new MockApiClient();
         Map<String, Object> headers = new Map<String, Object>{
@@ -201,7 +201,7 @@ private class OASTest {
         System.assertEquals('10', req.getHeader('Max-Forwards'));
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_serializeRequestBodyOrFormByContentType() {
         MockApiClient client = new MockApiClient();
         Map<String, Object> body1 = new Map<String, Object>{
@@ -237,7 +237,7 @@ private class OASTest {
         System.assertEquals(expected3, actual3);
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_usePreferredContentTypeOrFirstInList() {
         MockApiClient client = new MockApiClient();
 
@@ -262,7 +262,7 @@ private class OASTest {
         System.assertEquals('application/json', result3);
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_usePreferredAcceptOrAllInListNoDefault() {
         MockApiClient client = new MockApiClient();
 
@@ -283,7 +283,7 @@ private class OASTest {
         System.assert(headers3.isEmpty());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_formUrlWithQueryParamsPathParams() {
         MockApiClient client = new MockApiClient();
         String path = '/departments/{department}';
@@ -297,7 +297,7 @@ private class OASTest {
         System.assertEquals(expected, actual);
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_returnParsedBody() {
         MockApiClient client = new MockApiClient();
         HttpResponse res = new HttpResponse();
@@ -333,7 +333,7 @@ private class OASTest {
         System.assertEquals('2110 Speedway', a.getStreet());
     }
 
-    @isTest
+    @IsTest
     private static void ApiClient_noReturnTypeReturnsNull() {
         MockApiClient client = new MockApiClient();
         HttpResponse res = new HttpResponse();

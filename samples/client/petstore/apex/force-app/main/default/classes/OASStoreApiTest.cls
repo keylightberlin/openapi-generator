@@ -1,11 +1,11 @@
-@isTest
+@IsTest
 private class OASStoreApiTest {
     /**
      * Delete purchase order by ID
      *
      * For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors
      */
-    @isTest
+    @IsTest
     private static void deleteOrderTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -30,7 +30,7 @@ private class OASStoreApiTest {
      *
      * Returns a map of status codes to quantities
      */
-    @isTest
+    @IsTest
     private static void getInventoryTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -55,7 +55,7 @@ private class OASStoreApiTest {
      *
      * For valid response try integer IDs with value &lt;&#x3D; 5 or &gt; 10. Other values will generated exceptions
      */
-    @isTest
+    @IsTest
     private static void getOrderByIdTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -92,9 +92,9 @@ private class OASStoreApiTest {
     /**
      * Place an order for a pet
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void placeOrderTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);

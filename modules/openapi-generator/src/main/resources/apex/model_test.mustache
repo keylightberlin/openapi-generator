@@ -1,10 +1,10 @@
 {{#models}}
   {{#model}}
-@isTest
+@IsTest
 private class {{classname}}Test {
 {{#isEnum}}
   {{#allowableValues}}
-    @isTest
+    @IsTest
     private static void allowableValues() {
         Set<{{classname}}> expected = new Set<{{classname}}>{
           {{#enumVars}}
@@ -17,7 +17,7 @@ private class {{classname}}Test {
   {{/allowableValues}}
 {{/isEnum}}
 {{^isEnum}}
-    @isTest
+    @IsTest
     private static void equalsSameInstance() {
         {{classname}} {{classVarName}}1 = {{classname}}.getExample();
         {{classname}} {{classVarName}}2 = {{classVarName}}1;
@@ -32,7 +32,7 @@ private class {{classname}}Test {
         System.assert({{classVarName}}3.equals({{classVarName}}3));
     }
 
-    @isTest
+    @IsTest
     private static void equalsIdenticalInstance() {
         {{classname}} {{classVarName}}1 = {{classname}}.getExample();
         {{classname}} {{classVarName}}2 = {{classname}}.getExample();
@@ -45,7 +45,7 @@ private class {{classname}}Test {
         System.assert({{classVarName}}4.equals({{classVarName}}3));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsDifferentType() {
         {{classname}} {{classVarName}}1 = {{classname}}.getExample();
         {{classname}} {{classVarName}}2 = new {{classname}}();
@@ -54,7 +54,7 @@ private class {{classname}}Test {
         System.assertEquals(false, {{classVarName}}2.equals('foo'));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsNull() {
         {{classname}} {{classVarName}}1 = {{classname}}.getExample();
         {{classname}} {{classVarName}}2 = new {{classname}}();
@@ -64,7 +64,7 @@ private class {{classname}}Test {
         System.assertEquals(false, {{classVarName}}2.equals({{classVarName}}3));
     }
 
-    @isTest
+    @IsTest
     private static void consistentHashCodeValue() {
         {{classname}} {{classVarName}}1 = {{classname}}.getExample();
         {{classname}} {{classVarName}}2 = new {{classname}}();
@@ -73,7 +73,7 @@ private class {{classname}}Test {
         System.assertEquals({{classVarName}}2.hashCode(), {{classVarName}}2.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void equalInstancesHaveSameHashCode() {
         {{classname}} {{classVarName}}1 = {{classname}}.getExample();
         {{classname}} {{classVarName}}2 = {{classname}}.getExample();
@@ -88,7 +88,7 @@ private class {{classname}}Test {
   {{#vendorExtensions}}
     {{#x-has-property-mappings}}
 
-    @isTest
+    @IsTest
     private static void maintainRenamedProperties() {
         {{classname}} {{classVarName}} = new {{classname}}();
         Map<String, String> propertyMappings = {{classVarName}}.getPropertyMappings();
@@ -99,7 +99,7 @@ private class {{classname}}Test {
     {{/x-has-property-mappings}}
     {{#x-has-default-values}}
 
-    @isTest
+    @IsTest
     private static void defaultValuesPopulated() {
         {{classname}} {{classVarName}} = new {{classname}}();
       {{#vars}}

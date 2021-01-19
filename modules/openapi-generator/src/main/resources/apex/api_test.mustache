@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 private class {{classname}}Test {
 {{#operations}}
   {{#operation}}
@@ -7,7 +7,7 @@ private class {{classname}}Test {
      *
      * {{notes}}
      */
-    @isTest
+    @IsTest
     private static void {{operationId}}Test() {
         HttpResponse res = new HttpResponse();
     {{#restfulCreate}}

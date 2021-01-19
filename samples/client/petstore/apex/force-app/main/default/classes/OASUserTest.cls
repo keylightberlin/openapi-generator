@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class OASUserTest {
-    @isTest
+    @IsTest
     private static void equalsSameInstance() {
         OASUser user1 = OASUser.getExample();
         OASUser user2 = user1;
@@ -15,7 +15,7 @@ private class OASUserTest {
         System.assert(user3.equals(user3));
     }
 
-    @isTest
+    @IsTest
     private static void equalsIdenticalInstance() {
         OASUser user1 = OASUser.getExample();
         OASUser user2 = OASUser.getExample();
@@ -28,7 +28,7 @@ private class OASUserTest {
         System.assert(user4.equals(user3));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsDifferentType() {
         OASUser user1 = OASUser.getExample();
         OASUser user2 = new OASUser();
@@ -37,7 +37,7 @@ private class OASUserTest {
         System.assertEquals(false, user2.equals('foo'));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsNull() {
         OASUser user1 = OASUser.getExample();
         OASUser user2 = new OASUser();
@@ -47,7 +47,7 @@ private class OASUserTest {
         System.assertEquals(false, user2.equals(user3));
     }
 
-    @isTest
+    @IsTest
     private static void consistentHashCodeValue() {
         OASUser user1 = OASUser.getExample();
         OASUser user2 = new OASUser();
@@ -56,7 +56,7 @@ private class OASUserTest {
         System.assertEquals(user2.hashCode(), user2.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void equalInstancesHaveSameHashCode() {
         OASUser user1 = OASUser.getExample();
         OASUser user2 = OASUser.getExample();

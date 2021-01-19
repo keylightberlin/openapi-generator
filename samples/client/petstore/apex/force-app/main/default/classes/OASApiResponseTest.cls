@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class OASApiResponseTest {
-    @isTest
+    @IsTest
     private static void equalsSameInstance() {
         OASApiResponse apiResponse1 = OASApiResponse.getExample();
         OASApiResponse apiResponse2 = apiResponse1;
@@ -15,7 +15,7 @@ private class OASApiResponseTest {
         System.assert(apiResponse3.equals(apiResponse3));
     }
 
-    @isTest
+    @IsTest
     private static void equalsIdenticalInstance() {
         OASApiResponse apiResponse1 = OASApiResponse.getExample();
         OASApiResponse apiResponse2 = OASApiResponse.getExample();
@@ -28,7 +28,7 @@ private class OASApiResponseTest {
         System.assert(apiResponse4.equals(apiResponse3));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsDifferentType() {
         OASApiResponse apiResponse1 = OASApiResponse.getExample();
         OASApiResponse apiResponse2 = new OASApiResponse();
@@ -37,7 +37,7 @@ private class OASApiResponseTest {
         System.assertEquals(false, apiResponse2.equals('foo'));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsNull() {
         OASApiResponse apiResponse1 = OASApiResponse.getExample();
         OASApiResponse apiResponse2 = new OASApiResponse();
@@ -47,7 +47,7 @@ private class OASApiResponseTest {
         System.assertEquals(false, apiResponse2.equals(apiResponse3));
     }
 
-    @isTest
+    @IsTest
     private static void consistentHashCodeValue() {
         OASApiResponse apiResponse1 = OASApiResponse.getExample();
         OASApiResponse apiResponse2 = new OASApiResponse();
@@ -56,7 +56,7 @@ private class OASApiResponseTest {
         System.assertEquals(apiResponse2.hashCode(), apiResponse2.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void equalInstancesHaveSameHashCode() {
         OASApiResponse apiResponse1 = OASApiResponse.getExample();
         OASApiResponse apiResponse2 = OASApiResponse.getExample();
@@ -69,7 +69,7 @@ private class OASApiResponseTest {
         System.assertEquals(apiResponse3.hashCode(), apiResponse4.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void maintainRenamedProperties() {
         OASApiResponse apiResponse = new OASApiResponse();
         Map<String, String> propertyMappings = apiResponse.getPropertyMappings();

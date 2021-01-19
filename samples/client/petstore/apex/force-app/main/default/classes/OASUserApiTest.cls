@@ -1,11 +1,11 @@
-@isTest
+@IsTest
 private class OASUserApiTest {
     /**
      * Create user
      *
      * This can only be done by the logged in user.
      */
-    @isTest
+    @IsTest
     private static void createUserTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(201);
@@ -28,9 +28,9 @@ private class OASUserApiTest {
     /**
      * Creates list of users with given input array
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void createUsersWithArrayInputTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -53,9 +53,9 @@ private class OASUserApiTest {
     /**
      * Creates list of users with given input array
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void createUsersWithListInputTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -80,7 +80,7 @@ private class OASUserApiTest {
      *
      * This can only be done by the logged in user.
      */
-    @isTest
+    @IsTest
     private static void deleteUserTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -103,9 +103,9 @@ private class OASUserApiTest {
     /**
      * Get user by user name
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void getUserByNameTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -142,9 +142,9 @@ private class OASUserApiTest {
     /**
      * Logs user into the system
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void loginUserTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -170,9 +170,9 @@ private class OASUserApiTest {
     /**
      * Logs out current logged in user session
      *
-     * 
+     *
      */
-    @isTest
+    @IsTest
     private static void logoutUserTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
@@ -193,7 +193,7 @@ private class OASUserApiTest {
      *
      * This can only be done by the logged in user.
      */
-    @isTest
+    @IsTest
     private static void updateUserTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);

@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class OASInlineObject1Test {
-    @isTest
+    @IsTest
     private static void equalsSameInstance() {
         OASInlineObject1 inlineObject11 = OASInlineObject1.getExample();
         OASInlineObject1 inlineObject12 = inlineObject11;
@@ -15,7 +15,7 @@ private class OASInlineObject1Test {
         System.assert(inlineObject13.equals(inlineObject13));
     }
 
-    @isTest
+    @IsTest
     private static void equalsIdenticalInstance() {
         OASInlineObject1 inlineObject11 = OASInlineObject1.getExample();
         OASInlineObject1 inlineObject12 = OASInlineObject1.getExample();
@@ -28,7 +28,7 @@ private class OASInlineObject1Test {
         System.assert(inlineObject14.equals(inlineObject13));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsDifferentType() {
         OASInlineObject1 inlineObject11 = OASInlineObject1.getExample();
         OASInlineObject1 inlineObject12 = new OASInlineObject1();
@@ -37,7 +37,7 @@ private class OASInlineObject1Test {
         System.assertEquals(false, inlineObject12.equals('foo'));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsNull() {
         OASInlineObject1 inlineObject11 = OASInlineObject1.getExample();
         OASInlineObject1 inlineObject12 = new OASInlineObject1();
@@ -47,7 +47,7 @@ private class OASInlineObject1Test {
         System.assertEquals(false, inlineObject12.equals(inlineObject13));
     }
 
-    @isTest
+    @IsTest
     private static void consistentHashCodeValue() {
         OASInlineObject1 inlineObject11 = OASInlineObject1.getExample();
         OASInlineObject1 inlineObject12 = new OASInlineObject1();
@@ -56,7 +56,7 @@ private class OASInlineObject1Test {
         System.assertEquals(inlineObject12.hashCode(), inlineObject12.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void equalInstancesHaveSameHashCode() {
         OASInlineObject1 inlineObject11 = OASInlineObject1.getExample();
         OASInlineObject1 inlineObject12 = OASInlineObject1.getExample();

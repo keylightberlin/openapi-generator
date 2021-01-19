@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class OASPetTest {
-    @isTest
+    @IsTest
     private static void equalsSameInstance() {
         OASPet pet1 = OASPet.getExample();
         OASPet pet2 = pet1;
@@ -15,7 +15,7 @@ private class OASPetTest {
         System.assert(pet3.equals(pet3));
     }
 
-    @isTest
+    @IsTest
     private static void equalsIdenticalInstance() {
         OASPet pet1 = OASPet.getExample();
         OASPet pet2 = OASPet.getExample();
@@ -28,7 +28,7 @@ private class OASPetTest {
         System.assert(pet4.equals(pet3));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsDifferentType() {
         OASPet pet1 = OASPet.getExample();
         OASPet pet2 = new OASPet();
@@ -37,7 +37,7 @@ private class OASPetTest {
         System.assertEquals(false, pet2.equals('foo'));
     }
 
-    @isTest
+    @IsTest
     private static void notEqualsNull() {
         OASPet pet1 = OASPet.getExample();
         OASPet pet2 = new OASPet();
@@ -47,7 +47,7 @@ private class OASPetTest {
         System.assertEquals(false, pet2.equals(pet3));
     }
 
-    @isTest
+    @IsTest
     private static void consistentHashCodeValue() {
         OASPet pet1 = OASPet.getExample();
         OASPet pet2 = new OASPet();
@@ -56,7 +56,7 @@ private class OASPetTest {
         System.assertEquals(pet2.hashCode(), pet2.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void equalInstancesHaveSameHashCode() {
         OASPet pet1 = OASPet.getExample();
         OASPet pet2 = OASPet.getExample();
@@ -69,7 +69,7 @@ private class OASPetTest {
         System.assertEquals(pet3.hashCode(), pet4.hashCode());
     }
 
-    @isTest
+    @IsTest
     private static void defaultValuesPopulated() {
         OASPet pet = new OASPet();
         System.assertEquals(new List<String>(), pet.photoUrls);
