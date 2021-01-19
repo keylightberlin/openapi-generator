@@ -1,8 +1,8 @@
 /**
  * {{#description}}{{.}}{{/description}}{{^description}}{{classname}}{{/description}}
  */{{>additionalModelTypeAnnotations}}
-public class {{classname}}{{#parent}} extends {{{parent}}}{{/parent}}{{#interfaces}}{{#-first}} implements {{/-first}}{{^-first}}, {{/-first}}{{.}}{{/interfaces}} {
-  {{#vars}}
+public class {{classname}}{{#parent}} extends {{{parent}}}{{/parent}} {{#vendorExtensions}}{{#x-has-property-mappings}}implements UNDO_KL_Utils.MappedProperties{{/x-has-property-mappings}}{{/vendorExtensions}} {
+    {{#vars}}
     {{#isEnum}}
     {{^isContainer}}
 {{>modelInnerEnum}}
@@ -30,7 +30,21 @@ public class {{classname}}{{#parent}} extends {{{parent}}}{{/parent}}{{#interfac
     {{/maximum}}
      * @return {{name}}
      */
+    @AuraEnabled
     public {{{datatypeWithEnum}}} {{name}} { get; {{#isReadOnly}}private {{/isReadOnly}}set; }
+
+    {{#isEnum}}
+    @AuraEnabled
+    transient public String {{name}}StrRepr {
+      get {
+        if ({{name}} == null) {
+          return '';
+        }
+        return {{name}}.name();
+      }
+    }
+
+    {{/isEnum}}
 
   {{/vars}}
 {{#vendorExtensions}}

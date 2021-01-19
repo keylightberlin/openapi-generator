@@ -392,7 +392,12 @@ public abstract class AbstractApexCodegen extends DefaultCodegen implements Code
         } else if (ModelUtils.isObjectSchema(p)) {
             example = example.isEmpty() ? "null" : example;
         } else {
-            example = getTypeDeclaration(p) + ".getExample()";
+            String typeDeclaration = getTypeDeclaration(p);
+            if (typeDeclaration.equals("String")) {
+                example = "'value'";
+            } else {
+                example = typeDeclaration + ".getExample()";
+            }
         }
         return example;
     }
@@ -460,9 +465,6 @@ public abstract class AbstractApexCodegen extends DefaultCodegen implements Code
         cm.vendorExtensions.put("x-has-default-values", hasDefaultValues);
         cm.vendorExtensions.put("x-property-mappings", propertyMappings);
 
-        if (!propertyMappings.isEmpty()) {
-            cm.interfaces.add("OAS.MappedProperties");
-        }
         return cm;
     }
 
@@ -539,12 +541,14 @@ public abstract class AbstractApexCodegen extends DefaultCodegen implements Code
         }
 
         // string
-        String var = value.replaceAll("\\W+", "_").toUpperCase(Locale.ROOT);
+        String var = value.replaceAll("\\W+", "_");
         if (var.matches("\\d.*")) {
             return "_" + var;
-        } else {
-            return var;
         }
+        if (isReservedWord(var)) {
+            return var + "_original_reserved";
+        }
+        return var;
     }
 
     @Override

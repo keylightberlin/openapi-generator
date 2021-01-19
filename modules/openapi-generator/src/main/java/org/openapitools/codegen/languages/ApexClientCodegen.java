@@ -22,6 +22,7 @@ import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.CliOption;
+import org.openapitools.codegen.CodegenModel;
 import org.openapitools.codegen.CodegenProperty;
 import org.openapitools.codegen.SupportingFile;
 import org.openapitools.codegen.utils.ModelUtils;
@@ -29,10 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Locale;
+import java.util.*;
 
 import static org.openapitools.codegen.utils.StringUtils.camelize;
 
@@ -106,8 +104,8 @@ public class ApexClientCodegen extends AbstractApexCodegen {
                         "hint", "if", "implements", "import", "in", "inner", "insert", "instanceof", "int", "integer",
                         "interface", "into", "join", "like", "limit", "list", "long", "loop", "map", "merge", "new",
                         "not", "null", "nulls", "number", "object", "of", "on", "or", "outer", "override", "package", "parallel",
-                        "pragma", "private", "protected", "public", "retrieve", "return", 
-                        "rollback", "select", "set", "short", "sObject", "sort", "static", "string", 
+                        "pragma", "private", "protected", "public", "retrieve", "return",
+                        "rollback", "select", "set", "short", "sObject", "sort", "static", "string",
                         "super", "switch", "synchronized", "system", "testmethod", "then", "this",
                         "throw", "time", "transaction", "trigger", "true", "try", "undelete", "update", "upsert", "using",
                         "virtual", "void", "webservice", "when", "where", "while"
@@ -128,6 +126,7 @@ public class ApexClientCodegen extends AbstractApexCodegen {
         instantiationTypes.put("array", "List");
         instantiationTypes.put("map", "Map");
 
+        removeEnumValuePrefix = false;
     }
 
     @Override
@@ -312,7 +311,7 @@ public class ApexClientCodegen extends AbstractApexCodegen {
         supportingFiles.add(new SupportingFile("gitignore.mustache", "", ".gitignore"));
 
         supportingFiles.add(new SupportingFile("README_ant.mustache", "README.md")
-            .doNotOverwrite());
+                .doNotOverwrite());
 
     }
 
@@ -322,9 +321,33 @@ public class ApexClientCodegen extends AbstractApexCodegen {
         supportingFiles.add(new SupportingFile("sfdx-project.json.mustache", "sfdx-project.json"));
 
         supportingFiles.add(new SupportingFile("README_sfdx.mustache", "README.md")
-            .doNotOverwrite());
+                .doNotOverwrite());
 
     }
 
-
+    @Override
+    public Map<String, Object> postProcessAllModels(Map<String, Object> objs) {
+        Map<String, Object> superProcessedModels = super.postProcessAllModels(objs);
+        Iterator<Map.Entry<String, Object>> iterator = superProcessedModels.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Object> entry = iterator.next();
+            if (entry.getKey().endsWith("_allOf")) {
+                iterator.remove();
+            } else {
+                Map<String, Object> values = (Map<String, Object>) entry.getValue();
+                List<Object> models = (List<Object>) values.get("models");
+                if (models != null && models.size() > 0) {
+                    Map<String, Object> model = (Map<String, Object>) models.get(0);
+                    CodegenModel cmModel = (CodegenModel) model.get("model");
+                    if (cmModel.interfaces.size() > 0) {
+                        if (cmModel.interfaces.get(0).endsWith("AllOf")) {
+                            cmModel.interfaces = new ArrayList<>();
+                            cmModel.interfaceModels = new ArrayList<>();
+                        }
+                    }
+                }
+            }
+        }
+        return superProcessedModels;
+    }
 }

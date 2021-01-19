@@ -91,9 +91,9 @@ private class {{classname}}Test {
     @isTest
     private static void maintainRenamedProperties() {
         {{classname}} {{classVarName}} = new {{classname}}();
-        Map<String, String> x-property-mappings = {{classVarName}}.getx-property-mappings();
+        Map<String, String> propertyMappings = {{classVarName}}.getPropertyMappings();
       {{#x-property-mappings}}
-        System.assertEquals('{{internalName}}', x-property-mappings.get('{{externalName}}'));
+        System.assertEquals('{{internalName}}', propertyMappings.get('{{externalName}}'));
       {{/x-property-mappings}}
     }
     {{/x-has-property-mappings}}
