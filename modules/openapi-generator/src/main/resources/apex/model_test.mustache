@@ -16,7 +16,22 @@ private class {{classname}}Test {
     }
   {{/allowableValues}}
 {{/isEnum}}
+{{#vars}}
+  {{#isEnum}}
+    @IsTest
+    private static void {{name}}HasCorrectStringRepresentations() {
+        {{classname}} {{classVarName}}1 = {{classname}}.getExample();
+        System.assertEquals({{classVarName}}1.{{name}}.Name(), {{classVarName}}1.{{name}}StrRepr);
+
+        {{classname}} {{classVarName}}2 = new {{classname}}();
+        System.assertEquals('', {{classVarName}}2.{{name}}StrRepr);
+    }
+
+  {{/isEnum}}
+{{/vars}}
+
 {{^isEnum}}
+
     @IsTest
     private static void equalsSameInstance() {
         {{classname}} {{classVarName}}1 = {{classname}}.getExample();
